@@ -11,7 +11,7 @@ import java.util.Scanner;
  *
  * @author your name goes here
  */
-public class FoodServiceTipCalculator implements Calculator {
+public class FoodServiceTipCalculator implements TipCalculator {
 
     private double minBill = 0.00;
     private String BILL_ENTRY_ERR

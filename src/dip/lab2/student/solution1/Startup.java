@@ -22,10 +22,10 @@ import javax.swing.JOptionPane;
 public class Startup {
 
     public static void main(String[] args) {
-        Calculator[] calculators
+        TipCalculator[] calculators
                 = {new FoodServiceTipCalculator(),
                     new BaggageServiceTipCalculator()};
-        for (Calculator c : calculators) {
+        for (TipCalculator c : calculators) {
             c.enterBillingInfo();
             System.out.println(c.getFinalBill());
         }

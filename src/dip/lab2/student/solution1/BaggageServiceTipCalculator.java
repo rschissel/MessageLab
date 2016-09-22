@@ -11,7 +11,7 @@ import java.util.Scanner;
  *
  * @author your name goes here
  */
-public class BaggageServiceTipCalculator implements Calculator {
+public class BaggageServiceTipCalculator implements TipCalculator {
 
     private static final double minBill = 0.00;
     private static final double maxBill = 100.00;

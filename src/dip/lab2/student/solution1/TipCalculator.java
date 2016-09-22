@@ -9,7 +9,7 @@ package dip.lab2.student.solution1;
  *
  * @author Ryan Schissel
  */
-public interface Calculator {
+public interface TipCalculator {
 
     public abstract ServiceQuality getServiceQuality();
 
