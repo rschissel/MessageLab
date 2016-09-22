@@ -13,11 +13,11 @@ import java.util.Scanner;
  */
 public class BaggageServiceTipCalculator implements Calculator {
 
-    private static final double MIN_BILL = 0.00;
-    private static final double MAX_BILL = 100.00;
+    private static final double minBill = 0.00;
+    private static final double maxBill = 100.00;
     private static final String BILL_ENTRY_ERR
-            = "Error: bill must be between " + MIN_BILL + " and "
-            + MAX_BILL;
+            = "Error: bill must be between " + minBill + " and "
+            + maxBill;
     private double goodRate = 0.20;
     private double fairRate = 0.15;
     private double poorRate = 0.10;
