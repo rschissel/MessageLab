@@ -18,9 +18,9 @@ public class BaggageServiceTipCalculator implements Calculator {
     private static final String BILL_ENTRY_ERR
             = "Error: bill must be between " + MIN_BILL + " and "
             + MAX_BILL;
-    private static double GOOD_RATE = 0.20;
-    private static double FAIR_RATE = 0.15;
-    private static double POOR_RATE = 0.10;
+    private double goodRate = 0.20;
+    private double fairRate = 0.15;
+    private double poorRate = 0.10;
 
     private double billBeforeTip;
     private int bagCount;
@@ -42,13 +42,13 @@ public class BaggageServiceTipCalculator implements Calculator {
 
         switch (serviceQuality) {
             case GOOD:
-                tip = billBeforeTip * bagCount * (1 + GOOD_RATE);
+                tip = billBeforeTip * bagCount * (1 + goodRate);
                 break;
             case FAIR:
-                tip = billBeforeTip * bagCount * (1 + FAIR_RATE);
+                tip = billBeforeTip * bagCount * (1 + fairRate);
                 break;
             case POOR:
-                tip = billBeforeTip * bagCount * (1 + POOR_RATE);
+                tip = billBeforeTip * bagCount * (1 + poorRate);
                 break;
             default:
                 break;
@@ -85,7 +85,7 @@ public class BaggageServiceTipCalculator implements Calculator {
     public final void setBillBeforeTip(double billBeforeTip) {
         if (billBeforeTip < 0) {
             throw new IllegalArgumentException(
-                    "error: base tip must be greater than or equal to zero");
+                    BILL_ENTRY_ERR);
         }
         this.billBeforeTip = billBeforeTip;
     }
