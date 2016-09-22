@@ -50,8 +50,7 @@ public class BaggageServiceTipCalculator implements Calculator {
             case POOR:
                 tip = billBeforeTip * bagCount * (1 + poorRate);
                 break;
-            default:
-                break;
+            
         }
 
         return tip;
