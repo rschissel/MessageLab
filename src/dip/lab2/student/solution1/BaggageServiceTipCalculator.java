@@ -37,6 +37,7 @@ public class BaggageServiceTipCalculator implements Calculator {
 
     }
 
+    @Override
     public final double getTip() {
         double tip = 0.00; // always initialize local variables
 
