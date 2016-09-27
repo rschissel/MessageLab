@@ -19,8 +19,7 @@ public class MessageManager {
     }
     
     public void doMessage(){
-        String msg = input.inputMessage();
-        output.outputMessage(msg);
+        output.outputMessage(input.inputMessage());
     }
     
 }

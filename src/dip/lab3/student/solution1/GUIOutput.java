@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
  */
 public class GUIOutput implements Output{
 
+  
     @Override
     public void outputMessage(String message) {
         JOptionPane.showMessageDialog(null, message, "A super awesome message has arrived!", 0);

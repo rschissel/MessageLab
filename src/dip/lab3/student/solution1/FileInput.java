@@ -9,12 +9,6 @@ package dip.lab3.student.solution1;
  *
  * @author Ryan Schissel
  */
-public class ConsoleOutput implements Output{
-  
-    @Override
-    public void outputMessage(String message) {
-        System.out.println(message);
-    }
-    
+public class FileInput {
     
 }

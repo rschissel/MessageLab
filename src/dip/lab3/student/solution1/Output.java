@@ -10,5 +10,5 @@ package dip.lab3.student.solution1;
  * @author Ryan Schissel
  */
 public interface Output {
-    public abstract void outputMessage(String message);
+    public abstract void outputMessage(String msg);
 }
