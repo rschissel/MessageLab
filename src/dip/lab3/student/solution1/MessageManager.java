@@ -10,10 +10,10 @@ package dip.lab3.student.solution1;
  * @author Ryan Schissel
  */
 public class MessageManager {
-    private Input input;
-    private Output output;
+    private MessageInput input;
+    private MessageOutput output;
 
-    public MessageManager(Input input, Output output) {
+    public MessageManager(MessageInput input, MessageOutput output) {
         this.input = input;
         this.output = output;
     }

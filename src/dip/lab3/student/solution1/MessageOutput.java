@@ -9,6 +9,6 @@ package dip.lab3.student.solution1;
  *
  * @author Ryan Schissel
  */
-public interface Input {
-    public abstract String inputMessage();
+public interface MessageOutput {
+    public abstract void outputMessage(String msg);
 }

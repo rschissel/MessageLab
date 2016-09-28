@@ -11,8 +11,8 @@ package dip.lab3.student.solution1;
  */
 public class Startup {
     public static void main(String[] args) {
-        Input input = new KeyboardInput();
-        Output output = new GUIOutput();
+        MessageInput input = new KeyboardInput();
+        MessageOutput output = new GUIOutput();
         
         MessageManager msgMgr = new MessageManager(input, output);
         msgMgr.doMessage();

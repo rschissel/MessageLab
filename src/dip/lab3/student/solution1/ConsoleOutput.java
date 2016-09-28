@@ -9,7 +9,7 @@ package dip.lab3.student.solution1;
  *
  * @author Ryan Schissel
  */
-public class ConsoleOutput implements Output{
+public class ConsoleOutput implements MessageOutput{
   
     @Override
     public void outputMessage(String message) {
