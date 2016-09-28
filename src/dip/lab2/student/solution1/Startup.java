@@ -3,7 +3,6 @@ package dip.lab2.student.solution1;
 // An useful import if you need it.
 import dip.lab2.*;
 import java.text.NumberFormat;
-import java.util.Scanner;
 // Another useful import if you need it.
 import javax.swing.JOptionPane;
 
@@ -22,12 +21,14 @@ import javax.swing.JOptionPane;
 public class Startup {
 
     public static void main(String[] args) {
-        TipCalculator[] calculators
-                = {new FoodServiceTipCalculator(),
-                    new BaggageServiceTipCalculator()};
-        for (TipCalculator c : calculators) {
-            c.enterBillingInfo();
-            System.out.println(c.getFinalBill());
-        }
+        TipCalculator baggageTipCalc = new BaggageServiceTipCalculator(ServiceQuality.GOOD, 1);
+        TipCalculator foodTipCalc = new FoodServiceTipCalculator(ServiceQuality.GOOD, 10);
+        
+        TipCalculatorManager foodTipCalcMgr = new TipCalculatorManager(foodTipCalc);
+        TipCalculatorManager baggageTipCalcMgr = new TipCalculatorManager(baggageTipCalc);
+        
+        System.out.println(foodTipCalcMgr.getTip());
+        System.out.println(baggageTipCalcMgr.getTip());
     }
+
 }

@@ -9,6 +9,13 @@ package dip.lab2.student.solution1;
  *
  * @author Ryan Schissel
  */
- public enum ServiceQuality {
-        GOOD, FAIR, POOR
+public class TipCalculatorManager {
+    private TipCalculator tipCalculator;
+
+    public TipCalculatorManager(TipCalculator tipCalculator) {
+        this.tipCalculator = tipCalculator;
     }
+    public double getTip(){
+        return tipCalculator.getTip();
+    }
+}

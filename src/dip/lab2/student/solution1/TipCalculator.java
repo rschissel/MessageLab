@@ -11,18 +11,6 @@ package dip.lab2.student.solution1;
  */
 public interface TipCalculator {
 
-    public abstract ServiceQuality getServiceQuality();
-
     public abstract double getTip();
-
-    public abstract void setBillBeforeTip(double billBeforeTip);
-
-    public abstract void setServiceRating(ServiceQuality q);
-
-    public abstract String getCalcName();
-
-    public abstract void enterBillingInfo();
-
-    public abstract String getFinalBill();
 
 }

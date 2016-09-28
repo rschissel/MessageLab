@@ -18,7 +18,7 @@ public class MessageManager {
         this.output = output;
     }
     
-    public void doMessage(){
+    public final void doMessage(){
         output.outputMessage(input.inputMessage());
     }
     

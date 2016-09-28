@@ -1,57 +1,50 @@
 package dip.lab2.student.solution1;
 
 import dip.lab2.*;
-import java.util.Scanner;
 
 /**
- * An example low-level class. Does this class definition follow the DIP? If
- * not, fix it.
+ * An example low-level class. Does this class definition follow the DIP?
+ * If not, fix it.
  *
  * Any other best practice violations? Fix them too.
  *
  * @author your name goes here
  */
-public class BaggageServiceTipCalculator implements TipCalculator {
-
-    private static final double minBill = 0.00;
-    private static final double maxBill = 100.00;
-    private static final String BILL_ENTRY_ERR
-            = "Error: bill must be between " + minBill + " and "
-            + maxBill;
+public class BaggageServiceTipCalculator implements TipCalculator{
+    private static final double MIN_BILL = 0.00;
+    private static final double MAX_BILL = 100.00;
+    private static final String BILL_ENTRY_ERR =
+            "Error: bill must be between " + MIN_BILL + " and "
+            + MAX_BILL;
     private double goodRate = 0.20;
     private double fairRate = 0.15;
     private double poorRate = 0.10;
 
-    private double billBeforeTip;
+    private double baseTipPerBag;
     private int bagCount;
 
     private ServiceQuality serviceQuality;
-    private String calcName = "Baggage Service";
 
-    public BaggageServiceTipCalculator(double billBeforeTip, int bags) {
-        this.setBillBeforeTip(billBeforeTip); // perform validation
+    public BaggageServiceTipCalculator(ServiceQuality q, int bags) {
+        this.setServiceRating(q); // perform validation
         this.setBagCount(bags);
+
+        baseTipPerBag = 1.00; // set default value
     }
 
-    public BaggageServiceTipCalculator() {
-
-    }
-
-    @Override
-    public final double getTip() {
+    public double getTip() {
         double tip = 0.00; // always initialize local variables
 
-        switch (serviceQuality) {
+        switch(serviceQuality) {
             case GOOD:
-                tip = billBeforeTip * bagCount * (1 + goodRate);
+                tip = baseTipPerBag * bagCount * (1 + goodRate);
                 break;
             case FAIR:
-                tip = billBeforeTip * bagCount * (1 + fairRate);
+                tip = baseTipPerBag * bagCount * (1 + fairRate);
                 break;
             case POOR:
-                tip = billBeforeTip * bagCount * (1 + poorRate);
+                tip = baseTipPerBag * bagCount * (1 + poorRate);
                 break;
-            
         }
 
         return tip;
@@ -62,61 +55,32 @@ public class BaggageServiceTipCalculator implements TipCalculator {
         serviceQuality = q;
     }
 
-    public final ServiceQuality getServiceQuality() {
+    public ServiceQuality getServiceQuality() {
         return serviceQuality;
     }
 
-    public final int getBagCount() {
+    public int getBagCount() {
         return bagCount;
     }
 
     public final void setBagCount(int bagCount) {
-        if (bagCount < 0) {
+        if(bagCount < 0) {
             throw new IllegalArgumentException(
                     "bag count must be greater than or equal to zero");
         }
         this.bagCount = bagCount;
     }
 
-    public final double getBaseTipPerBag() {
-        return billBeforeTip;
+    public double getBaseTipPerBag() {
+        return baseTipPerBag;
     }
 
-    public final void setBillBeforeTip(double billBeforeTip) {
-        if (billBeforeTip < 0) {
+    public void setBaseTipPerBag(double baseTipPerBag) {
+        if(baseTipPerBag < 0) {
             throw new IllegalArgumentException(
-                    BILL_ENTRY_ERR);
+                    "error: base tip must be greater than or equal to zero");
         }
-        this.billBeforeTip = billBeforeTip;
+        this.baseTipPerBag = baseTipPerBag;
     }
 
-    @Override
-    public String getCalcName() {
-        return calcName;
-    }
-
-    @Override
-    public String getFinalBill() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("The final ");
-        sb.append(this.getCalcName());
-        sb.append(" bill is: ");
-        sb.append(this.getTip());
-        return sb.toString();
-    }
-
-    @Override
-    public void enterBillingInfo() {
-        Scanner kybd = new Scanner(System.in);
-        String input;
-        System.out.print("Enter " + this.getCalcName() + " rating(good/fair/poor): ");
-        input = kybd.nextLine();
-        this.setServiceRating(ServiceQuality.valueOf(input.toUpperCase()));
-        System.out.print("Enter bill before tip: ");
-        input = kybd.nextLine();
-        this.setBillBeforeTip(Double.parseDouble(input));
-        System.out.print("Enter number of bags: ");
-        input = kybd.nextLine();
-        this.setBagCount(Integer.parseInt(input));
-    }
 }
